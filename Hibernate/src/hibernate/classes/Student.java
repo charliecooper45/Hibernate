@@ -5,12 +5,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-
+@NamedQueries({
+	@NamedQuery(name="findStudentById", query="from Student st where st.studentId = :studentId")
+	})
 @Entity
 @Table(name = "student", catalog = "hibernate_test_database")
 public class Student implements java.io.Serializable {
+	public static final String QUERY_BY_STUDENT_ID = "findStudentById";
 
 	private static final long serialVersionUID = 1L;
 
@@ -56,4 +61,10 @@ public class Student implements java.io.Serializable {
 	public void setStudentAge(String studentAge) {
 		this.studentAge = studentAge;
 	}
+
+	@Override
+	public String toString() {
+		return "Student [studentId=" + studentId + ", studentName=" + studentName + ", studentAge=" + studentAge + "]";
+	}
+	
 }
