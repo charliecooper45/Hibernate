@@ -4,12 +4,11 @@ import hibernate.classes.Student;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.stat.Statistics;
 
 import utils.HibernateUtil;
 
 public class Main {
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
 //        session.beginTransaction();
